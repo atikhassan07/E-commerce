@@ -95,6 +95,7 @@ Route::get('/newsletter', [SubscriberController::class, 'newsletter'])->name('ne
 Route::post('/newsletter/store', [SubscriberController::class, 'newsletterStore'])->name('newsletter.store');
 Route::get('/all/subscriber', [SubscriberController::class, 'AllSubcriber'])->name('all.subscriber');
 Route::post('/update/subscriber', [SubscriberController::class, 'updateSubcriber'])->name('update.subscriber');
+Route::get('/delete/subscriber/{id}', [SubscriberController::class,'delete'])->name('delete.subscriber');
 
 
 //Logo

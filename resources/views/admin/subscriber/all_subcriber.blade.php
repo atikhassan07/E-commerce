@@ -24,7 +24,7 @@
                                 <td>{{ $susbscribe->email }}</td>
                                 <td>{{\Carbon\Carbon::parse($susbscribe->created_at)->diffForHumans() }}</td>
                                 <td>
-                                    <a href="" class="btn btn-danger shadow btn-sm" id="delete"><i class="fa fa-trash"></i></a>
+                                    <a href="{{ route('delete.subscriber',$susbscribe->id) }}" class="btn btn-danger shadow btn-sm" id="delete"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach

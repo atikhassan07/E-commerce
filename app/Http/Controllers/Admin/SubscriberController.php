@@ -74,4 +74,13 @@ class SubscriberController extends Controller
         }
     }
 
+    public function delete($id){
+
+        Newsletter::find($id)->delete();
+
+        $notification=array('messege' => 'Subscriber Deleted Successfully', 'alert-type' => 'success');
+
+        return redirect()->back()->with($notification);
+    }
+
 }
