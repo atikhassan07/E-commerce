@@ -78,9 +78,10 @@ class SubscriberController extends Controller
 
         Newsletter::find($id)->delete();
 
-        $notification=array('messege' => 'Subscriber Deleted Successfully', 'alert-type' => 'success');
+        $notification=array('messege' => 'Subscribe Deleted Successfuly', 'alert-type' =>'success');
 
         return redirect()->back()->with($notification);
+
     }
 
 }

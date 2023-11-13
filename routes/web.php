@@ -49,6 +49,7 @@ Route::get('/subcategory', [SubcategoryController::class, 'subcategory'])->name(
 Route::post('/subcategory/store', [SubcategoryController::class, 'subcategoryStore'])->name('subcategory.store');
 Route::get('/subcategory/edit/{id}', [SubcategoryController::class, 'subcategoryEdit'])->name('subcategory.edit');
 Route::post('/subcategory/update/{id}', [SubcategoryController::class, 'subcategoryUpdate'])->name('subcategory.update');
+Route::get('/subcategory/soft/delete/{id}', [SubcategoryController::class,'subcategorySoftDelete'])->name('subcategory.soft.delete');
 
 
 //Brand Setting

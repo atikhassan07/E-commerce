@@ -97,4 +97,18 @@ class SubcategoryController extends Controller
             //      return redirect()->route('brand')->with($notification);
             // }
     }
+
+    public function subcategorySoftDelete($id){
+
+        $subcategory = Subcategory::find($id);
+        $delete_photo = public_path('uploads/subcategory/'.$subcategory->subcategory_photo);
+
+        unlink($delete_photo);
+
+        Subcategory::find($id)->delete();
+
+        $notification=array('messege' => 'Subcategory Deleted Successfuly', 'alert-type' => 'error');
+
+        return redirect()->back()->with($notification);
+    }
 }
