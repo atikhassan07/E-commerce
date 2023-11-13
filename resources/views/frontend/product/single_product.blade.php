@@ -154,14 +154,6 @@
                                 <div class="Descriptions-item">
                                     <p>{!! $products->first()->long_description !!}</p>
                                     <div class="Description-table">
-                                        <ul>
-                                            <li>While thus cackled sheepishly rigid after due one assenting</li>
-                                            <li>Et vitae eget bibendum quam sed velit. Eget ornare urna nibh ullamcorper sed.</li>
-                                            <li>Habitant adipiscing dignissim aliquet laoreet ultrices etiam nulla sed ut.</li>
-                                            <li>Lacinia parturient id eu vel justo cursus eu.</li>
-                                            <li>Mauris malesuada ac arcu adipiscing etiam velit at tortor cras.</li>
-
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
