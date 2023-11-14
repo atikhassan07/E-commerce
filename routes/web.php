@@ -52,6 +52,7 @@ Route::post('/subcategory/update/{id}', [SubcategoryController::class, 'subcateg
 Route::get('/subcategory/soft/delete/{id}', [SubcategoryController::class,'subcategorySoftDelete'])->name('subcategory.soft.delete');
 
 
+
 //Brand Setting
 Route::get('/brand', [BrandController::class, 'brand'])->name('brand');
 Route::post('/brand/store', [BrandController::class, 'brandStore'])->name('brand.store');

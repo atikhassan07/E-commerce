@@ -16,7 +16,6 @@
                 <table class="table table-stripe">
                     <thead>
                         <tr>
-                        <th width="50px"><input type="checkbox" id="master"></th>
                         <th>SL NO:</th>
                         <th>Category Name:</th>
                         <th>Subcategory Name:</th>
@@ -27,15 +26,14 @@
                     <tbody>
                         @foreach ($subcategories as $key=> $category)
                             <tr>
-                                <td><input type="checkbox" class="sub_chk" data-id="master"></td>
                                 <td>{{ $key+1 }}</td>
                                 <td>{{ $category->rel_to_catgory->category_name }}</td>
                                 <td>{{ $category->subcategory_name }}</td>
                                 <td><img width="50" src="{{ asset('uploads/subcategory') }}/{{ $category->subcategory_photo }}" alt=""></td>
-                                <td>
-                                    <a href="{{ route('subcategory.edit',$category->id) }}" class="btn btn-success shadow btn-sm"><i class="fa fa-pencil"></i></a>
+                                <td class="d-flex">
+                                    <a href="{{ route('subcategory.edit',$category->id) }}" class="btn btn-success shadow btn-xs mx-2"><i class="fa fa-pencil"></i></a>
 
-                                    <a href="{{ route('subcategory.soft.delete',$category->id) }}" class="btn btn-danger shadow btn-sm" id="delete"><i class="fa fa-trash"></i></a>
+                                    <a href="{{ route('subcategory.soft.delete',$category->id) }}" class="btn btn-danger shadow btn-xs" id="delete"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach

@@ -19,7 +19,7 @@
                             </div>
                         <div class="mb-3">
                             <label for=""><b>Subategory Name:</b></label>
-                            <input type="text" name="category_name" class="form-control" value="{{ $subcategories->subcategory_name}}">
+                            <input type="text" name="subcategory_name" class="form-control" value="{{ $subcategories->subcategory_name}}">
                         </div>
 
                         <div class="mb-3">

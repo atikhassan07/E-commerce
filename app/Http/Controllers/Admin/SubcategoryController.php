@@ -62,7 +62,7 @@ class SubcategoryController extends Controller
     {
         $subcategory = Subcategory::find($id);
 
-        if($request->subcategory_photo == '')
+        if($request->hasFile('subcategory_photo') == null)
             {
                 Subcategory::find($id)->update([
 
@@ -70,32 +70,30 @@ class SubcategoryController extends Controller
                 ]);
                 $notification=array('messege' => 'Subcategory Updated Successfuly', 'alert-type' => 'success');
 
-                return redirect()->route('subcategory')->with($notification);
+                return redirect()->back()->with($notification);
             }
-            // else{
+            else{
 
-            //    $delete_photo = public_path('uploads/brands/'.$brands->brand_photo);
+                $subcategory = Subcategory::find($id);
+                $delete_photo = public_path('uploads/subcategory/'.$subcategory->subcategory_photo);
 
-            //    unlink($delete_photo);
+                if($photo = $request->file('subcategory_photo')){
 
-            //    $image = $request->brand_photo;
+                    $extension = $photo->getClientOriginalExtension();
 
-            //    $extension = $image->extension();
+                    $file_name = str::lower(str_replace(' ', '-',$request->subcategory_name)).'.'.$extension;
 
-            //    $file_name = Str::lower(str_replace(' ', '-', $request->brand_name)).'.'.$extension;
+                    Image::make($photo)->save(public_path('uploads/subcategory/'.$file_name));
 
-            //    Image::make($image)->save(public_path('uploads/brands/'.$file_name));
+                    Subcategory::find($id)->update([
+                        'subcategory_name'=>$request->subcategory_name,
+                        'subcategory_photo'=> $file_name,
+                    ]);
+                    $notification=array('messege' => 'Subcategory Updated Successfuly', 'alert-type' => 'success');
 
-            //    Brand::find($id)->update([
-
-            //     'brand_name'=>$request->brand_name,
-            //     'brand_photo'=>$file_name,
-
-            //    ]);
-            //      $notification=array('messege' => 'Brand Updated Successfuly', 'alert-type' => 'success');
-
-            //      return redirect()->route('brand')->with($notification);
-            // }
+                    return redirect()->route('subcategory')->with($notification);
+                }
+            }
     }
 
     public function subcategorySoftDelete($id){
